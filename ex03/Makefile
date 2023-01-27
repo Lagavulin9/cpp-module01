@@ -1,0 +1,26 @@
+NAME = weapon
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+SRC = main.cpp \
+	Weapon.cpp \
+	HumanA.cpp \
+	HumanB.cpp
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+%o: %cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
