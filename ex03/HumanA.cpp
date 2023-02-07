@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:14:25 by jinholee          #+#    #+#             */
-/*   Updated: 2023/01/26 19:34:25 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:37:32 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 HumanA::HumanA(std::string name, Weapon& weapon):
 	weapon(weapon)
 {
-	setName(name);
 }
 
 HumanA::~HumanA()
