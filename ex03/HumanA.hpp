@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:13:39 by jinholee          #+#    #+#             */
-/*   Updated: 2023/02/06 17:35:31 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:44:39 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 class HumanA
 {
 private:
-	const std::string	name;
-	Weapon&				weapon;
+	std::string		_name;
+	const Weapon&	_weapon;
 public:
-	HumanA(std::string name, Weapon& weapon);
+	HumanA(const std::string& name, const Weapon& weapon);
 	~HumanA();
 
 	void				attack();
-	void				setName(std::string);
+	void				setName(const std::string&);
 	const std::string&	getName();
 };
 

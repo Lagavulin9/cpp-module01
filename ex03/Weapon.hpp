@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:08:27 by jinholee          #+#    #+#             */
-/*   Updated: 2023/01/26 19:19:25 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:33:46 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 class Weapon
 {
 private:
-	std::string	type;
+	std::string	_type;
 public:
-	Weapon(std::string type);
+	Weapon(const std::string& type);
 	~Weapon();
 
-	void				setType(std::string);
-	const std::string&	getType();
+	void				setType(const std::string&);
+	const std::string&	getType() const;
 };
 
 #endif

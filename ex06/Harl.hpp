@@ -6,13 +6,13 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:51:25 by jinholee          #+#    #+#             */
-/*   Updated: 2023/01/27 13:24:21 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:09:43 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef __HARL__HPP__
-# define __HARL__HPP__
+#ifndef __HARL_HPP__
+# define __HARL_HPP__
 
 # include <string>
 # include <iostream>

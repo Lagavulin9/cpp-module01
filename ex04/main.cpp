@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:29:15 by jinholee          #+#    #+#             */
-/*   Updated: 2023/01/26 17:48:30 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:03:27 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ std::string	str_replace(std::string line, std::string to_find, std::string to_re
 	return (line);
 }
 
-void	replace_swap(std::string orig, std::string swap)
-{
-	std::remove(orig.data());
-	std::rename(swap.data(), orig.data());
-}
-
 int	main(int argc, char **argv)
 {
 	std::ifstream	ifile;
@@ -46,17 +40,26 @@ int	main(int argc, char **argv)
 	std::string		line, outline, to_find, to_replace, swap;
 
 	if (argc != 4)
-		return (0);
+	{
+		std::cout << "usage: my_sed [file_name] [to_find] [to_replace]" << std::endl;
+		return (1);
+	}
 	swap = argv[1];
+	swap.append(".replace");
 	to_find = argv[2];
 	to_replace = argv[3];
 	ifile.open(argv[1], std::ifstream::in);
-	if (!ifile)
+	if (ifile.fail())
 	{
 		perror(argv[1]);
 		return (1);
 	}
-	ofile.open(swap.append(".swap"), std::ofstream::trunc);
+	ofile.open(swap, std::ofstream::out | std::ofstream::trunc);
+	if (ofile.fail())
+	{
+		perror(swap.data());
+		return (1);
+	}
 	while (std::getline(ifile, line))
 	{
 		line = str_replace(line, to_find, to_replace);
@@ -64,6 +67,5 @@ int	main(int argc, char **argv)
 	}
 	ifile.close();
 	ofile.close();
-	replace_swap(argv[1], swap);
 	return (0);
 }
